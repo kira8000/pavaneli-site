@@ -1,0 +1,34 @@
+---
+description: AI workflow, validation, change discipline, and official sources
+alwaysApply: true
+---
+
+# AI-assisted development
+
+## Workflow
+
+Requirement → understand → plan → architecture → implement → review → typecheck → lint → test → security review → documentation.
+
+“Compiles” ≠ correct. Review generated code against project rules.
+
+## Change management
+
+1. Locate existing code; understand architecture.
+2. Reuse patterns; change only what the task needs—no drive-by refactors.
+3. After relevant edits, run available scripts: `lint`, `typecheck`, `test`, `build`. Fix failures; never disable rules to greenwash CI.
+
+## Dependencies
+
+Before adding a package: check framework built-ins, simple native solution, bundle size, maintenance, compatibility, real need.
+
+## Research
+
+Prefer official docs for Next.js, React, TypeScript, Tailwind, a11y APIs, testing, and animation libraries.
+
+## Context economy
+
+Do not rewrite whole files, add unrequested code, or install deps without need. Reuse existing context.
+
+## Agent behavior
+
+Understand goal, impact, and dependencies first; implement the smallest correct solution; then validate.

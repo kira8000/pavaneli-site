@@ -1,0 +1,17 @@
+---
+description: Accessibility requirements for UI and interactions
+globs: "**/*.{tsx,jsx}"
+alwaysApply: false
+---
+
+# Accessibility
+
+- Semantic HTML first; ARIA only when semantics are insufficient.
+- One logical `h1` per view; heading levels never skip arbitrarily.
+- All interactive elements keyboard reachable with visible **focus** styles (match design system).
+- Forms: `<label>` associated with controls; describe errors with `aria-describedby` / live regions when appropriate.
+- Dialogs/drawers/menus: focus trap, `aria-modal`, return focus on close; Escape closes when expected.
+- Command palette: typeahead, roving tabindex or arrow-key patterns per WAI-ARIA practices.
+- Color contrast meets WCAG for text and controls; do not rely on color alone for state.
+- Honor `prefers-reduced-motion` for animations and large transitions.
+- Test critical flows with keyboard only and screen reader spot-checks for new patterns.

@@ -1,0 +1,28 @@
+---
+description: Visual identity, layout, and purposeful motion
+globs: "**/*.{tsx,css}"
+alwaysApply: false
+---
+
+# UI / UX
+
+## Identity
+
+**Modern developer tooling + SaaS + terminal aesthetic + minimalism**
+
+- Dark mode as default identity: near-black backgrounds, restrained surfaces.
+- **Neon green** as primary accent (sparingly: CTAs, focus, key metrics).
+- Technical typography in moderation (mono for code/metadata, sans for reading).
+- Clear hierarchy, generous whitespace, professional product feel—not template “AI portfolio.”
+
+## Avoid
+
+- Purple gradients, heavy glassmorphism, excessive glow or border-radius.
+- Card grids without information hierarchy; cyberpunk excess; motion without purpose.
+
+## Animation
+
+- Use motion for navigation, feedback, hierarchy, spatial continuity, and micro-interactions.
+- Prefer `opacity` and `transform`; respect `prefers-reduced-motion` (disable or shorten).
+- Check official docs for any animation library before complex sequences.
+- No animation purely for decoration.

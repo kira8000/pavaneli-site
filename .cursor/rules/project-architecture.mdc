@@ -1,0 +1,33 @@
+---
+description: Architecture principles and folder boundaries for the portfolio app
+alwaysApply: true
+---
+
+# Project architecture
+
+## Principles
+
+- Simplicity before abstraction; low coupling, high cohesion; separation of concerns.
+- Composition over inheritance; reuse only when there is real duplication.
+- Keep domain logic out of presentational components when it grows beyond trivial UI.
+- Dependencies point toward stable abstractions (types, contracts), not concrete UI.
+
+## React / Next.js
+
+**Prefer:** Server Components by default; Client Components only for interactivity, browser APIs, or client-only libraries. Explicit server/client boundaries. Co-located feature code. Data fetching aligned with Next.js (RSC, `fetch`, route handlers when needed).
+
+**Avoid:** Unnecessary `"use client"`; monolithic components; business rules in JSX; deep prop drilling; premature layers (repositories, providers) before a second consumer exists.
+
+## Structure (grow as needed)
+
+Allow separating without mandating a heavy tree:
+
+- `app/` — routes, layouts, server entry
+- `components/` — shared UI
+- `features/` — feature-specific UI + hooks
+- `domain/` — types, validation schemas, pure rules
+- `services/` — orchestration
+- `repositories/` — data access contracts + mock/API impl
+- `lib/` — utilities, shared clients
+
+Start flat inside `app/` and `components/` until a feature justifies `features/` or `repositories/`.

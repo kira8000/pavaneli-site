@@ -1,0 +1,14 @@
+---
+description: Security baseline for frontend and future API boundaries
+alwaysApply: true
+---
+
+# Security
+
+- Validate and sanitize **all** external input at trust boundaries (forms, search, URL params).
+- Never render untrusted HTML; avoid `dangerouslySetInnerHTML` unless content is sanitized with a maintained library.
+- Secrets only in environment variables on the server; never commit `.env` or embed keys in client bundles.
+- External links: `rel="noopener noreferrer"` when using `target="_blank"`.
+- Keep dependencies updated; review new packages for maintenance and known risk.
+- When auth exists: http-only cookies or established patterns; enforce authorization in server/data layer, not UI alone.
+- No real personal data in mocks, logs, or fixtures unless explicitly approved.

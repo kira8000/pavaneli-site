@@ -1,0 +1,30 @@
+---
+description: Service and repository layer over mock data (swappable for API later)
+globs: "**/{repositories,services,domain,mocks,mock-data}/**/*"
+alwaysApply: false
+---
+
+# Backend and data (mock-first)
+
+## Layering
+
+```
+UI → Service → Repository → Mock data (later: API)
+```
+
+- UI and feature hooks depend on **interfaces** (`ProjectRepository`), not `MockProjectRepository` directly.
+- Services orchestrate use cases (list + filter + map errors); repositories perform I/O-shaped operations only.
+
+## Contracts
+
+- Define shared **domain types** and **input/output** types for create/update/list.
+- Use validation schemas (e.g. Zod) at service or API boundary; map to user-facing field errors.
+- List operations: support **pagination**, **filters**, and **sort** via typed query objects—not stringly-typed bags.
+
+## CRUD and errors
+
+- Return `Result` or throw domain errors consistently (pick one per feature and stick to it).
+- Model not-found, validation, and conflict explicitly; never leak stack traces to UI.
+- DTOs only when the API/mock shape differs from domain; avoid duplicate models without reason.
+
+Do not implement repositories or mocks until the spec defines entities and routes.

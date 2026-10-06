@@ -1,0 +1,12 @@
+---
+description: When and how to document decisions and setup
+alwaysApply: false
+---
+
+# Documentation
+
+- Short, decision-oriented docs: **why** a choice was made, not a restatement of the code.
+- Update README for setup, scripts, test, build, and deploy when those exist.
+- Record non-obvious architecture (data layer, i18n, auth) in README or `docs/` only when it helps onboarding.
+- Do not duplicate Cursor rules in long-form docs; link or rely on `.cursor/rules/` for agent standards.
+- ADRs optional—use for irreversible or controversial choices only.

@@ -1,0 +1,17 @@
+---
+description: Gate new abstractions, libraries, and architectural patterns
+alwaysApply: true
+---
+
+# No overengineering
+
+Before adding a library, provider, repository, service, hook, or pattern, answer:
+
+1. Real need now?
+2. Reuse in more than one place (or clear imminent reuse)?
+3. Better maintenance or testability?
+4. Lower total complexity?
+
+If not, choose the simpler approach.
+
+Do **not** adopt Clean Architecture, DDD, microservices, or heavy folder trees to appear advanced. Maturity shows in appropriate tradeoffs.

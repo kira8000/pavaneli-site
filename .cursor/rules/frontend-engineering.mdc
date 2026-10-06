@@ -1,0 +1,30 @@
+---
+description: React, TypeScript, and Next.js implementation standards
+globs: "**/*.{ts,tsx}"
+alwaysApply: false
+---
+
+# Frontend engineering
+
+## TypeScript
+
+- Keep `strict` enabled; avoid `any` and unnecessary type assertions.
+- Name types/interfaces by domain meaning (`Project`, `CreateProjectInput`), not by shape alone.
+- Prefer `type` or `interface` consistently with existing files in the same area.
+
+## Components and hooks
+
+- Small, cohesive components; extract hooks when logic is reused or clutters the component.
+- Props: explicit, minimal; avoid generic “god” components.
+- Forms: controlled inputs with accessible labels; validate at boundaries (schema + user feedback).
+
+## State and data
+
+- Server state via RSC/fetch or repository layer; client state only where interaction requires it.
+- Always handle **loading**, **error**, and **empty** states for async UI.
+- Errors: user-safe messages; log or rethrow at boundaries; no silent `catch`.
+
+## UI building blocks
+
+- Reuse shared primitives (buttons, inputs, dialogs) before copying markup.
+- Do not abstract just to save a few lines; a little duplication is fine when abstraction would hide intent.
