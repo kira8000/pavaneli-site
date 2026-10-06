@@ -1,0 +1,14 @@
+---
+description: Performance guidelines without premature optimization
+alwaysApply: false
+globs: "**/*.{ts,tsx}"
+---
+
+# Performance
+
+- Default to Server Components; split Client Components at interaction boundaries.
+- Lazy-load heavy client modules and below-the-fold UI when bundle analysis or UX warrants it.
+- Use Next.js image and font optimization; avoid loading entire icon packs for one icon.
+- Minimize unnecessary re-renders: stable keys, memo only with measured need.
+- Cache and revalidate data fetching deliberately (`fetch` options, Next cache tags when applicable).
+- Every optimization should have a stated reason (bundle size, LCP, interaction latency)—not speculative micro-tuning.

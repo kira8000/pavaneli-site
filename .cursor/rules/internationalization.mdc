@@ -1,0 +1,13 @@
+---
+description: PT-BR and EN i18n strategy
+globs: "**/*.{ts,tsx}"
+alwaysApply: false
+---
+
+# Internationalization (PT-BR / EN)
+
+- No user-facing strings hardcoded in components long-term; use translation keys (`namespace.key`).
+- Centralize dictionaries per locale; define a **fallback** chain (e.g. missing EN → PT or key marker in dev).
+- Language switcher updates locale and persists preference in **sessionStorage** when the main app is implemented.
+- Avoid hydration mismatch: resolve initial locale consistently on server and client (same default, read storage only after mount or via cookie if SSR requires it).
+- Keep dates, numbers, and plurals locale-aware via `Intl` or the chosen i18n library—do not hand-roll formats.

@@ -1,0 +1,14 @@
+---
+description: Behavior-focused testing strategy
+globs: "**/*.{test,spec}.{ts,tsx}"
+alwaysApply: false
+---
+
+# Testing
+
+- Test **behavior** users and integrators care about—not implementation details.
+- Prioritize: critical UI, forms, pagination/filters, CRUD flows, loading/error/empty states, important domain rules.
+- Prefer queries aligned with accessibility (`getByRole`, `getByLabelText`).
+- Avoid snapshot-only coverage; avoid testing private functions or hook internals unless they encode critical policy.
+- Coverage is a signal, not a goal; missing tests on trivial presentational wrappers is acceptable.
+- Run the project’s test script after meaningful changes when tests exist.

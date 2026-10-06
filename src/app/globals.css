@@ -1,0 +1,112 @@
+@import "tailwindcss";
+
+/*
+ * Design tokens. Dark is the identity and the default (no attribute needed);
+ * a stored "light" choice sets data-theme="light" before first paint.
+ * Neon green is an accent only: focus, active state, primary actions.
+ */
+:root,
+[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #0a0b0a;
+  --surface: #101211;
+  --raised: #171a18;
+  --border: #242a26;
+  --fg: #e6e9e7;
+  --muted: #a1aba6;
+  --subtle: #7f8985;
+  --accent: #34f08a;
+  --accent-fg: #04140a;
+  --warning: #f5b84a;
+  --danger: #ff6b6b;
+}
+
+[data-theme="light"] {
+  color-scheme: light;
+  --bg: #f7f8f7;
+  --surface: #ffffff;
+  --raised: #eef1ef;
+  --border: #d9dfdb;
+  --fg: #101412;
+  --muted: #46514b;
+  --subtle: #5f6a64;
+  --accent: #087a3a;
+  --accent-fg: #ffffff;
+  --warning: #8a5a00;
+  --danger: #b42318;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-raised: var(--raised);
+  --color-border: var(--border);
+  --color-fg: var(--fg);
+  --color-muted: var(--muted);
+  --color-subtle: var(--subtle);
+  --color-accent: var(--accent);
+  --color-accent-fg: var(--accent-fg);
+  --color-warning: var(--warning);
+  --color-danger: var(--danger);
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
+}
+
+@layer base {
+  html {
+    /* Sticky header is 3.5rem; keep in-page targets (#section, skip link) visible. */
+    scroll-padding-top: 4.5rem;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: var(--font-sans);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+
+  ::selection {
+    background: color-mix(in srgb, var(--accent) 30%, transparent);
+  }
+}
+
+/* Drawer entrance: transform/opacity only; the native dialog handles focus and Esc. */
+@keyframes drawer-in {
+  from {
+    opacity: 0;
+    transform: translateX(-1rem);
+  }
+}
+
+.drawer[open] {
+  animation: drawer-in 180ms ease-out;
+}
+
+/* Modal and toast entrances: transform/opacity only. */
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(0.5rem);
+  }
+}
+
+.modal[open],
+.toast,
+.page-enter {
+  animation: rise-in 160ms ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

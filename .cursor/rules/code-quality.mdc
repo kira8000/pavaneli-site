@@ -1,0 +1,13 @@
+---
+description: Readability, cohesion, and maintainability standards
+alwaysApply: true
+---
+
+# Code quality
+
+- Readable, predictable code beats cleverness; functions and components stay small.
+- No magic numbers/strings—use named constants or enums when meaning matters.
+- Flatten deep nesting; extract helpers when logic branches obscure intent.
+- Comments explain **why**, not what the code already says.
+- Avoid unnecessary casts, `any`, and giant files.
+- Design for testability at boundaries (pure domain, services), not by mocking every child component.
