@@ -2,13 +2,16 @@ import type { Metadata } from "next";
 import { PageHeader } from "@/components/ui/PageHeader";
 import { PROJECTS } from "@/content/projects";
 import { ProjectCard } from "@/features/projects/ProjectCard";
+import { VersusCaseStudy } from "@/features/projects/VersusCaseStudy";
 import { T } from "@/i18n/T";
+import { pageMetadata } from "@/lib/page-metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Projects",
   description:
-    "Projects by Guilherme Pavaneli, including Versus, a rap battle management system in development.",
-};
+    "Versus case study by Guilherme Pavaneli: Flutter and NestJS software for rap-battle organizers. In development, with public repositories.",
+  path: "/projects",
+});
 
 export default function ProjectsPage() {
   return (
@@ -17,10 +20,14 @@ export default function ProjectsPage() {
         title={<T k="nav.projects" />}
         description={<T k="projects.description" />}
       />
-      <ul className="space-y-4">
+      <ul className="space-y-8">
         {PROJECTS.map((project) => (
           <li key={project.id}>
-            <ProjectCard project={project} headingLevel="h2" />
+            {project.id === "versus" ? (
+              <VersusCaseStudy />
+            ) : (
+              <ProjectCard project={project} headingLevel="h2" />
+            )}
           </li>
         ))}
       </ul>

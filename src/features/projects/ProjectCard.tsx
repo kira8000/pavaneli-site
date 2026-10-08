@@ -1,3 +1,4 @@
+import { ArrowLink } from "@/components/ui/ArrowLink";
 import { Badge } from "@/components/ui/Badge";
 import { ExternalLink } from "@/components/ui/ExternalLink";
 import type { PortfolioProject, ProjectCategory, ProjectStatus } from "@/content/types";
@@ -76,6 +77,12 @@ export function ProjectCard({ project, headingLevel: Heading = "h3" }: ProjectCa
             </li>
           )}
         </ul>
+      ) : project.caseStudyHref ? (
+        <div className="mt-4">
+          <ArrowLink href={project.caseStudyHref}>
+            <T k="projects.caseStudy" />
+          </ArrowLink>
+        </div>
       ) : (
         <p className="text-subtle mt-4 text-sm">
           <T k="projects.pendingDetails" />
