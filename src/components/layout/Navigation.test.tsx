@@ -3,6 +3,7 @@ import userEvent from "@testing-library/user-event";
 import { act } from "react";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import { setLocale } from "@/i18n/locale-store";
+import { PROFILE } from "@/content/profile";
 import { Breadcrumb } from "./Breadcrumb";
 import { NAV_ITEMS } from "./nav";
 import { SidebarContent } from "./SidebarContent";
@@ -23,7 +24,7 @@ describe("navigation", () => {
       render(<SidebarContent />);
 
       const nav = within(screen.getByRole("navigation", { name: "Primary" }));
-      expect(nav.getAllByRole("link")).toHaveLength(NAV_ITEMS.length);
+      expect(nav.getAllByRole("link")).toHaveLength(NAV_ITEMS.length + 1);
       expect(nav.getAllByRole("link", { current: "page" })).toHaveLength(1);
       expect(
         nav.getByRole("link", { name: "Engineering", current: "page" }),
@@ -34,28 +35,29 @@ describe("navigation", () => {
       );
     });
 
-    it("shows the unfinished project as a status, not as a link", () => {
+    it("links Versus to the case study and keeps the in-development status", () => {
       render(<SidebarContent />);
 
-      const versus = screen.getByText("Versus");
-      expect(versus.closest("a")).toBeNull();
-      expect(
-        within(versus.parentElement as HTMLElement).getByText("In development"),
-      ).toBeInTheDocument();
+      const versus = screen.getByRole("link", { name: /Versus/ });
+      expect(versus).toHaveAttribute("href", "/projects#versus");
+      expect(within(versus).getByText("In development")).toBeInTheDocument();
     });
 
-    it("opens external profiles safely in a new tab", () => {
+    it("opens external profiles safely in a new tab and exposes mailto", () => {
       render(<SidebarContent />);
 
-      const links = within(
-        screen.getByRole("list", { name: "External links" }),
-      ).getAllByRole("link");
-      expect(links).toHaveLength(2);
-      for (const link of links) {
+      const list = within(screen.getByRole("list", { name: "External links" }));
+      const github = list.getByRole("link", { name: /GitHub/ });
+      const linkedin = list.getByRole("link", { name: /LinkedIn/ });
+      for (const link of [github, linkedin]) {
         expect(link).toHaveAttribute("target", "_blank");
         expect(link).toHaveAttribute("rel", expect.stringContaining("noopener"));
         expect(link).toHaveAttribute("rel", expect.stringContaining("noreferrer"));
       }
+      expect(list.getByRole("link", { name: PROFILE.email })).toHaveAttribute(
+        "href",
+        `mailto:${PROFILE.email}`,
+      );
     });
 
     it("translates the labels with the active language", () => {

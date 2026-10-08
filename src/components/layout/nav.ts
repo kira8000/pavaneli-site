@@ -28,8 +28,9 @@ export const NAV_ITEMS: readonly NavItem[] = [
   { href: "/contact", labelKey: "nav.contact", icon: Mail },
 ];
 
-/** Listed but not navigable: the project is a work in progress with no public page yet. */
+/** Featured project: lives on the Projects page as a case study. */
 export const UPCOMING_NAV_ITEM = {
+  href: "/projects#versus",
   labelKey: "nav.versus",
   icon: FolderGit2,
-} as const satisfies Omit<NavItem, "href">;
+} as const satisfies NavItem;
