@@ -23,7 +23,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 const SITE_TITLE = `${PROFILE.name} | ${PROFILE.role}`;
-const SITE_DESCRIPTION = `${PROFILE.role}: ${PROFILE.stackSummary}.`;
+const SITE_DESCRIPTION = `${PROFILE.name} — ${PROFILE.role}. Web applications in React.js, Next.js, TypeScript and Node.js.`;
 
 // Metadata is static (English): the visitor's language is only known on the client.
 export const metadata: Metadata = {
@@ -44,11 +44,11 @@ export const metadata: Metadata = {
     locale: "en_US",
     alternateLocale: ["pt_BR"],
   },
-  twitter: {
-    card: "summary_large_image",
-    title: SITE_TITLE,
-    description: SITE_DESCRIPTION,
-  },
+    twitter: {
+      card: "summary_large_image",
+      title: SITE_TITLE,
+      description: SITE_DESCRIPTION,
+    },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
