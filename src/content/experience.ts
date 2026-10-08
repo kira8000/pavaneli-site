@@ -28,7 +28,8 @@ export const EXPERIENCE: readonly ExperienceEntry[] = [
       },
       {
         en: "An administrative solution with a REST API for content management.",
-        "pt-BR": "Uma solução administrativa com REST API para gerenciamento de conteúdo.",
+        "pt-BR":
+          "Uma solução administrativa com REST API para gerenciamento de conteúdo.",
       },
     ],
     responsibilities: [
@@ -85,8 +86,7 @@ export const EXPERIENCE: readonly ExperienceEntry[] = [
       },
       {
         en: "Node.js back-end pieces, including simple CRUD operations and middleware.",
-        "pt-BR":
-          "Trechos de back-end em Node.js, incluindo CRUD simples e middleware.",
+        "pt-BR": "Trechos de back-end em Node.js, incluindo CRUD simples e middleware.",
       },
     ],
     responsibilities: [

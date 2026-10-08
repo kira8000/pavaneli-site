@@ -44,11 +44,11 @@ export const metadata: Metadata = {
     locale: "en_US",
     alternateLocale: ["pt_BR"],
   },
-    twitter: {
-      card: "summary_large_image",
-      title: SITE_TITLE,
-      description: SITE_DESCRIPTION,
-    },
+  twitter: {
+    card: "summary_large_image",
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
