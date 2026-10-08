@@ -5,12 +5,14 @@ import { Section } from "@/components/ui/Section";
 import { ENGINEERING_TOPICS } from "@/content/engineering";
 import { TopicSection } from "@/features/engineering/TopicSection";
 import { T } from "@/i18n/T";
+import { pageMetadata } from "@/lib/page-metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Engineering",
   description:
-    "How this site is engineered: front-end, back-end, database, testing, performance, accessibility and security.",
-};
+    "How Guilherme Pavaneli approaches front-end, APIs, testing, accessibility and security. Illustrative examples are labeled; repository excerpts are real.",
+  path: "/engineering",
+});
 
 export default function EngineeringPage() {
   return (
@@ -22,6 +24,9 @@ export default function EngineeringPage() {
         />
         <p className="text-subtle max-w-2xl text-sm">
           <T k="engineering.illustrativeNote" />
+        </p>
+        <p className="text-subtle max-w-2xl text-sm">
+          <T k="engineering.performanceNote" />
         </p>
       </div>
 

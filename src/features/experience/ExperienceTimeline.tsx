@@ -98,6 +98,13 @@ export function ExperienceTimeline({ entries }: { entries: readonly ExperienceEn
                 </div>
               )}
 
+              {entry.workedOn && entry.workedOn.length > 0 && (
+                <BulletList
+                  label={t("experience.workedOn")}
+                  items={entry.workedOn.map(localize)}
+                />
+              )}
+
               {entry.responsibilities.length > 0 && (
                 <BulletList
                   label={t("experience.responsibilities")}

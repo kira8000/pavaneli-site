@@ -6,12 +6,14 @@ import { EducationList } from "@/features/about/EducationList";
 import { SkillGroups } from "@/features/skills/SkillGroups";
 import { T } from "@/i18n/T";
 import type { MessageKey } from "@/i18n/translate";
+import { pageMetadata } from "@/lib/page-metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "About",
   description:
-    "Background, technical skills and education of Guilherme Pavaneli, Full Stack Developer.",
-};
+    "Guilherme Pavaneli, Full Stack Developer: web applications in React.js, Next.js, TypeScript and Node.js. São Paulo, open to remote work in Brazil.",
+  path: "/about",
+});
 
 const TRAJECTORY = [
   { titleKey: "about.frontendTitle", bodyKey: "about.frontendBody" },

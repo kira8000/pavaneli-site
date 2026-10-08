@@ -1,6 +1,7 @@
+import type { Metadata } from "next";
 import { ArrowLink } from "@/components/ui/ArrowLink";
 import { BulletList } from "@/components/ui/BulletList";
-import { ExternalLink } from "@/components/ui/ExternalLink";
+import { ExternalLink, MailLink } from "@/components/ui/ExternalLink";
 import { Section } from "@/components/ui/Section";
 import { PROFILE } from "@/content/profile";
 import { PROJECTS } from "@/content/projects";
@@ -10,6 +11,14 @@ import { ProjectCard } from "@/features/projects/ProjectCard";
 import { SkillGroups } from "@/features/skills/SkillGroups";
 import { T } from "@/i18n/T";
 import type { MessageKey } from "@/i18n/translate";
+import { pageMetadata } from "@/lib/page-metadata";
+
+export const metadata: Metadata = pageMetadata({
+  title: "Full Stack Developer",
+  description:
+    "Guilherme Pavaneli — Full Stack Developer. Web applications in React.js, Next.js, TypeScript and Node.js. Open to Front-end and Full Stack roles, including remote work in Brazil.",
+  path: "/",
+});
 
 const FEATURED_PROJECTS = PROJECTS.filter((project) => project.featured);
 
@@ -97,6 +106,9 @@ export default function HomePage() {
           </li>
           <li>
             <ExternalLink href={PROFILE.links.github}>GitHub</ExternalLink>
+          </li>
+          <li>
+            <MailLink email={PROFILE.email}>{PROFILE.email}</MailLink>
           </li>
         </ul>
       </Section>

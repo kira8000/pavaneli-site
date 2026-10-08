@@ -7,12 +7,14 @@ import { AI_REVIEW_NOTES, AI_TASK_SPEC } from "@/content/code-snippets";
 import { WorkflowSteps } from "@/features/ai-workflow/WorkflowSteps";
 import { T } from "@/i18n/T";
 import type { MessageKey } from "@/i18n/translate";
+import { pageMetadata } from "@/lib/page-metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "AI-Assisted Engineering",
   description:
-    "How AI tools fit into the development workflow, and where human review stays in control.",
-};
+    "Guilherme Pavaneli uses AI to accelerate implementation. Requirements, architecture, review, tests and security stay human-owned.",
+  path: "/engineering/ai-assisted",
+});
 
 const HUMAN_KEYS = [
   "aiPage.human.requirements",
@@ -47,6 +49,9 @@ export default function AiAssistedPage() {
         title={<T k="aiPage.title" />}
         description={<T k="aiPage.description" />}
       />
+      <p className="text-muted max-w-3xl text-lg">
+        <T k="aiPage.accountability" />
+      </p>
 
       <Section
         id="workflow"

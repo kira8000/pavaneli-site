@@ -30,6 +30,7 @@ describe("TopicSection", () => {
   it("flags conceptual-only topics instead of implying a real database", () => {
     render(<TopicSection topic={topicById("database")} />);
 
+    expect(screen.getByText("Conceptual")).toBeInTheDocument();
     expect(
       screen.getByText(/does not use a real PostgreSQL database/),
     ).toBeInTheDocument();
