@@ -7,12 +7,22 @@ export const PROJECTS: readonly PortfolioProject[] = [
     category: "personal",
     status: "inProgress",
     description: {
-      en: "A system for managing rap battles.",
-      "pt-BR": "Um sistema para gerenciamento de batalhas de rap.",
+      en: "Software for rap-battle organizers: live editions, MCs, matches, rounds and results.",
+      "pt-BR":
+        "Software para organizadores de batalha de rima: edições ao vivo, MCs, confrontos, rounds e resultados.",
     },
-    // TODO(owner): stack, repository and demo, once they exist and can be public.
-    technologies: [],
+    technologies: [
+      "Flutter",
+      "Dart",
+      "NestJS",
+      "TypeScript",
+      "Prisma",
+      "PostgreSQL",
+      "REST APIs",
+      "OpenAPI",
+    ],
     links: {},
     featured: true,
+    caseStudyHref: "/projects#versus",
   },
 ];

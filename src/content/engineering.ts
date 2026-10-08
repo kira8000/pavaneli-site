@@ -15,6 +15,8 @@ export interface EngineeringTopic {
   pointKeys: readonly MessageKey[];
   /** Caveat about scope (for example "conceptual only"); rendered prominently. */
   noteKey?: MessageKey;
+  /** Knowledge / practice, not a claim that this portfolio runs that stack. */
+  conceptual?: boolean;
   /** Technical nouns, intentionally not translated. */
   flow?: readonly string[];
   snippet?: CodeSnippet;
@@ -55,6 +57,7 @@ export const ENGINEERING_TOPICS: readonly EngineeringTopic[] = [
     titleKey: "engineering.topics.database.title",
     introKey: "engineering.topics.database.intro",
     noteKey: "engineering.topics.database.note",
+    conceptual: true,
     pointKeys: [
       "engineering.topics.database.modeling",
       "engineering.topics.database.prisma",

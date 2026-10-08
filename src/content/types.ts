@@ -11,6 +11,8 @@ export interface ExperienceEntry {
   summary?: LocalizedText;
   applicationType?: LocalizedText;
   technologies: readonly string[];
+  /** Concrete systems / features (what existed in the work). */
+  workedOn?: readonly LocalizedText[];
   responsibilities: readonly LocalizedText[];
   highlights?: readonly LocalizedText[];
 }
@@ -39,4 +41,6 @@ export interface PortfolioProject {
   /** Only set what really exists; absent links are never rendered. */
   links: { repository?: string; demo?: string };
   featured?: boolean;
+  /** When set, the card points to a case study on this site instead of “coming soon”. */
+  caseStudyHref?: `/${string}`;
 }

@@ -75,6 +75,17 @@ model Ticket {
 }`,
 };
 
+export const PLAYGROUND_API_TEST: CodeSnippet = {
+  fileName: "api-demo.test.ts",
+  origin: "repository",
+  source: `it("maps successful calls to HTTP statuses", async () => {
+  expect((await send({ method: "GET" })).status).toBe(200);
+  expect((await send({ method: "GET", id: "usr_001" })).status).toBe(200);
+
+  const created = await send({ method: "POST", body: SAMPLE_BODIES.users.POST });
+  expect(created.status).toBe(201);`,
+};
+
 export const THEME_TOGGLE_TEST: CodeSnippet = {
   fileName: "ThemeToggle.test.tsx",
   origin: "repository",
@@ -140,6 +151,7 @@ export const ALL_SNIPPETS: readonly CodeSnippet[] = [
   NEST_LAYERS,
   PRISMA_SCHEMA,
   THEME_TOGGLE_TEST,
+  PLAYGROUND_API_TEST,
   NATIVE_DIALOG,
   AI_TASK_SPEC,
   AI_REVIEW_NOTES,

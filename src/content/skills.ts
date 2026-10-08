@@ -9,7 +9,7 @@ export const TECH_GROUPS = [
   { titleKey: "skills.database", items: ["PostgreSQL", "Prisma"] },
   { titleKey: "skills.testing", items: ["Jest"] },
   { titleKey: "skills.cloud", items: ["GCP", "Docker", "Git"] },
-  { titleKey: "skills.ai", items: ["Cursor", "Claude Code"] },
+  { titleKey: "skills.workflow", items: ["Cursor", "Claude Code"] },
 ] as const satisfies readonly { titleKey: MessageKey; items: readonly string[] }[];
 
 export const PRACTICE_KEYS = [

@@ -7,6 +7,7 @@ import { EXPERIENCE } from "./experience";
 import { PROFILE } from "./profile";
 import { PROJECTS } from "./projects";
 import { TECH_GROUPS } from "./skills";
+import { VERSUS } from "./versus";
 
 const YEAR_MONTH = /^\d{4}-(0[1-9]|1[0-2])$/;
 
@@ -38,6 +39,7 @@ describe("portfolio content", () => {
         expect(entry.endDate >= entry.startDate, entry.id).toBe(true);
       }
       expectBilingual(entry.role);
+      entry.workedOn?.forEach(expectBilingual);
       entry.responsibilities.forEach(expectBilingual);
       entry.highlights?.forEach(expectBilingual);
     }
@@ -65,6 +67,19 @@ describe("portfolio content", () => {
       for (const url of Object.values(project.links)) {
         expect(new URL(url).protocol).toBe("https:");
       }
+    }
+  });
+
+  it("keeps the Versus case study bilingual and never invents public repo URLs", () => {
+    expectBilingual(VERSUS.summary);
+    expectBilingual(VERSUS.problem);
+    expectBilingual(VERSUS.architecture);
+    VERSUS.implemented.forEach(expectBilingual);
+    VERSUS.inDevelopment.forEach(expectBilingual);
+    VERSUS.planned.forEach(expectBilingual);
+    for (const repo of VERSUS.repos) {
+      expectBilingual(repo.label);
+      expect(new URL(repo.href).protocol).toBe("https:");
     }
   });
 
@@ -98,5 +113,8 @@ describe("engineering content", () => {
     );
     // Database (no real DB), Testing (no E2E) and Security (no auth) must say so.
     expect(withNote).toEqual(expect.arrayContaining(["database", "testing", "security"]));
+    expect(ENGINEERING_TOPICS.find((topic) => topic.id === "database")?.conceptual).toBe(
+      true,
+    );
   });
 });

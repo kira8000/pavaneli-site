@@ -78,8 +78,24 @@ export const en = {
     unavailable: "The service is unavailable. Try again in a moment.",
   },
   playground: {
+    title: "Interactive Engineering Demo",
     description:
-      "A working admin-style demo on a simulated API: tables, forms, validation, modals, toasts and every request state.",
+      "A working admin-style demo on a simulated, in-memory API. It is not PostgreSQL and it is not a production backend.",
+    capabilitiesLabel: "What this demo covers",
+    capabilities: {
+      crud: "CRUD",
+      search: "Search",
+      filtering: "Filtering",
+      sorting: "Sorting",
+      pagination: "Pagination",
+      validation: "Validation",
+      loading: "Loading states",
+      error: "Error states",
+      dialogs: "Dialogs",
+      notifications: "Notifications",
+      api: "Simulated API (HTTP-style status codes)",
+    },
+    source: "Source in this repository",
     loading: "Loading…",
     backend: {
       title: "Simulated backend",
@@ -217,7 +233,7 @@ export const en = {
     database: "Databases",
     testing: "Testing",
     cloud: "Cloud & DevOps",
-    ai: "AI tools",
+    workflow: "AI-assisted development",
     practices: "Engineering practices",
     practiceItems: {
       testing: "Testing",
@@ -245,12 +261,12 @@ export const en = {
   },
   home: {
     heroDescription:
-      "Front-end developer evolving into Full Stack. I build web applications with a focus on architecture, reusable components, testing and maintainable code.",
-    ctaProjects: "View projects",
-    ctaContact: "Get in touch",
+      "I build web applications in React.js, Next.js and TypeScript — UI, APIs and business rules included. Open to Front-end and Full Stack roles, including remote work in Brazil.",
+    ctaProjects: "View my work",
+    ctaContact: "Let's talk",
     summaryTitle: "Professional summary",
     summaryBody:
-      "I'm a front-end developer with a solid foundation in React.js, Next.js and TypeScript, expanding into Full Stack with Node.js, NestJS, REST APIs and PostgreSQL. I value code that is easy to understand, test and evolve, and I use AI as an engineering tool, always with human review and validation.",
+      "I work on web applications with a strong front-end base in React.js, Next.js and TypeScript, and I take them through APIs, business rules and Node.js when the work needs it. I care about code that is easy to understand, test and change. AI speeds up implementation; I still own the requirements, the review and the validation.",
     skillsTitle: "Core skills",
     experienceTitle: "Experience",
     experienceBody:
@@ -273,47 +289,51 @@ export const en = {
       "AI helps with implementation. Requirements, architecture, business rules, validation and quality remain my responsibility.",
     aiCta: "See the workflow",
     ctaTitle: "Let's talk",
-    ctaBody: "You can reach me through LinkedIn or GitHub.",
+    ctaBody:
+      "LinkedIn, GitHub or email. I am based in São Paulo and open to remote opportunities in Brazil.",
   },
   about: {
-    description: "A front-end foundation, expanding into Full Stack.",
+    description: "What I build, how I work, and the stack I use on web applications.",
     profileTitle: "Profile",
     profileOne:
-      "I'm a front-end developer working with React.js, Next.js and TypeScript to build web applications, with a focus on reusable components, clear structure and maintainable code.",
+      "I build web applications in React.js, Next.js and TypeScript: reusable components, clear structure, and code that can be maintained.",
     profileTwo:
-      "I'm expanding into Full Stack, working with Node.js and NestJS, REST APIs, PostgreSQL, Prisma and OpenAPI.",
+      "On the back end I work with Node.js, NestJS, REST APIs, PostgreSQL, Prisma and OpenAPI when the product needs that layer.",
     trajectoryTitle: "Trajectory",
     frontendTitle: "Front-end",
     frontendBody:
-      "My strongest area: React.js, Next.js, TypeScript and JavaScript, applied to reusable components and corporate applications.",
-    fullstackTitle: "Full Stack (evolving)",
+      "My strongest area: React.js, Next.js, TypeScript and JavaScript, on reusable components and corporate applications.",
+    fullstackTitle: "Full Stack",
     fullstackBody:
-      "Extending my work to the back end: Node.js, NestJS, REST APIs, PostgreSQL, Prisma and OpenAPI.",
-    nextTitle: "Next step: senior level",
-    nextBody:
-      "Going deeper into architecture, testing and the evolution of existing systems.",
+      "APIs, business rules and data access with Node.js, NestJS, REST, PostgreSQL, Prisma and OpenAPI.",
+    nextTitle: "Focus going forward",
+    nextBody: "Deeper architecture, testing, and evolving systems that already exist.",
     focusTitle: "Focus areas",
     educationTitle: "Education",
     aiTitle: "Responsible use of AI",
     aiBody:
-      "I use AI as an engineering tool. Requirements, architecture, business rules, validation and quality stay under my responsibility, and generated code is always reviewed.",
+      "AI accelerates implementation. I still own requirements, architecture, business rules, review, tests and security. I should be able to understand, explain, debug, modify and validate the code I ship.",
     aiCta: "See the workflow",
   },
   experience: {
-    description: "Roles, technologies and responsibilities, in chronological order.",
+    description: "What I worked on, what I owned, and the stack in each role.",
     timelineLabel: "Professional timeline",
     present: "Present",
     applicationType: "Application type",
     technologies: "Technologies",
-    responsibilities: "Responsibilities",
+    workedOn: "What I worked on",
+    responsibilities: "What I was responsible for",
     highlights: "Technical highlights",
     emptyTitle: "Experience details coming soon",
     emptyBody: "The professional timeline is being prepared and will be published here.",
   },
   projects: {
-    description: "Selected work, including projects still in development.",
-    inProgress: "Work in progress",
+    description:
+      "Selected work. Versus is the main case study; more projects will follow as they can be published.",
+    inProgress: "In development",
     completed: "Completed",
+    implemented: "Implemented",
+    planned: "Planned",
     category: {
       professional: "Professional",
       personal: "Personal project",
@@ -322,23 +342,38 @@ export const en = {
     stack: "Stack",
     repository: "Repository",
     demo: "Demo",
+    caseStudy: "Case study",
+    problem: "Problem",
+    architecture: "Architecture",
+    domain: "Domain concepts",
+    noDemo: "No public demo yet.",
+    noRepo: "The source repositories are not public yet.",
     pendingDetails:
       "Repository, demo and architecture notes will be added as the project evolves.",
-    moreSoon: "More projects will be added here.",
+    moreSoon: "More projects will be added here when they can be published honestly.",
   },
   contact: {
-    description: "Where to find me.",
+    description:
+      "LinkedIn, GitHub or email. São Paulo, SP — also open to remote work in Brazil.",
     channelsTitle: "Channels",
-    channelsBody: "Professional contact: LinkedIn. Code and projects: GitHub.",
+    channelsBody: "Professional contact: LinkedIn. Code: GitHub. Direct: email.",
     email: "Email",
     location: "Location",
+    copyEmail: "Copy email",
+    copied: "Email copied",
   },
   engineering: {
     description:
       "How I think about building software: architecture, quality and trade-offs.",
     illustrativeNote:
-      "Snippets marked “Illustrative” show a pattern and are not excerpts from a production system. Snippets marked “From this repository” are real.",
-    origin: { illustrative: "Illustrative", repository: "From this repository" },
+      "“From this repository” is real code in this site. “Illustrative” is a pattern, not a production system I shipped. “Conceptual” is knowledge and practice, not a claim that this portfolio runs that stack.",
+    origin: {
+      illustrative: "Illustrative",
+      repository: "From this repository",
+      conceptual: "Conceptual",
+    },
+    performanceNote:
+      "This site is Server Components by default, with self-hosted fonts and no client data library. The Playground is the main client bundle and loads on that route. There is no fabricated Lighthouse score here.",
     aiTitle: "AI-assisted engineering",
     aiBody: "AI is a tool inside an engineering process, not a replacement for it.",
     aiCta: "See how I use AI as an engineering tool",
@@ -434,7 +469,9 @@ export const en = {
   aiPage: {
     title: "AI-Assisted Engineering",
     description:
-      "AI is an engineering tool. Requirements, architecture, business rules, validation and quality stay under human responsibility.",
+      "AI accelerates implementation. Requirements, architecture, business rules, data modeling, review, tests, security and accessibility stay with me.",
+    accountability:
+      "I should be able to understand, explain, debug, modify and validate the code I ship.",
     workflowTitle: "Workflow",
     workflowBody: "AI takes part in one step. Everything around it is still engineering.",
     humanTitle: "What stays with me",
@@ -468,9 +505,9 @@ export const en = {
     exampleTitle: "Example",
     exampleBody:
       "An illustrative task specification and the kind of review notes it leads to.",
-    toolsTitle: "Tools",
+    toolsTitle: "Development workflow",
     toolsBody:
-      "Cursor and Claude Code. This repository includes Cursor rules (in .cursor/rules) that encode the standards the AI has to follow.",
+      "Cursor and Claude Code are part of the workflow, not a substitute for the stack. This repository includes Cursor rules (in .cursor/rules) that the tools have to follow.",
   },
 };
 
